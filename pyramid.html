@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pyramid</title>
+	<script src="pyramid.js"></script>
+  <link rel = "stylesheet"
+     type = "text/css"
+     href = "style.css" />
+
+</head>
+<body>
+	<h2>Pyramid Adventure</h2>
+	<p>Set height:</p>
+	<p id="height-display"></p>
+	<input type="range" id="height-slider" min="1" max="20" oninput="drawPyramid(this.value)"/>
+
+	<div id="pyramid">
+	</div>
+</body>
+</html>

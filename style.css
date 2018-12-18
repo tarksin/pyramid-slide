@@ -1,0 +1,17 @@
+h2 {color: red}
+
+  #pyramid {
+          line-height: 0;
+          font-size: 30px;
+      }
+  h2 {
+           color: red;
+      }
+  body {
+          font-family: "Ubuntu", monospace;
+          text-align: center;
+      }
+
+  #pyramid {
+    color: blue;
+  }
