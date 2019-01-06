@@ -1,24 +1,62 @@
-function drawPyramid(height) {
+function determineParametersAndThenDrawPyramid() {
+
+    console.log("Someone called determineParametersAndThenDrawPyramid");
+
+    // figure out the height the user typed (replace the "5" below)
+    var heightStr = document.getElementById("heightSlider").value;
+    document.getElementById("numberSelected").innerHTML = heightStr;
+
+    var character = document.getElementById("brickSymbol").value;
+
+    // here we convert the string to an int
+    height = parseInt(heightStr);
+
+    // draw the pyramid with the given height
+    drawPyramid(height, character);
+
+}
+
+var rangeSlider = document.getElementById("heightSlider");
+rangeSlider.addEventListener("input", determineParametersAndThenDrawPyramid);
+
+var brickSymbol = document.getElementById("brickSymbol");
+brickSymbol.addEventListener("change", determineParametersAndThenDrawPyramid);
+
+determineParametersAndThenDrawPyramid();
+
+/**
+ * drawPyramid
+ *
+ * Renders, in the HTML document, a pyramid of the specified height
+ */
+ function drawPyramid(height, character) {
 
     document.getElementById("pyramid").innerHTML = "";
 
-    for (var row = 0; row < height; row++) {
+     // for each row....
+     for (var row = 0; row < height; row++) {
 
-        var numBricks = row + 2;
-        var numSpaces = height - row - 1;
+         // figure out number of bricks and spaces
+         var numBricks = row + 2;
+         var numSpaces = height - row - 1;
 
-        var rowStr = "";
-        for (var i = 0; i < numSpaces; i++) {
-            var spaceChar = "&nbsp"; 
-            rowStr += spaceChar;
-        }
-        for (var i = 0; i < numBricks; i++) {
-            rowStr += "*";
-        }
+         // build up a string for this row
+         var rowStr = "";
+         for (var i = 0; i < numSpaces; i++) {
+             rowStr += "\xa0";
+         }
+         for (var i = 0; i < numBricks; i++) {
+             rowStr += character;
+         }
 
+        // create a text element with the string of characters
+        textElem = document.createTextNode(rowStr);
+
+        // create a <p> element with the text inside
         rowElem = document.createElement("p");
-        rowElem.innerHTML = rowStr;
+        rowElem.appendChild(textElem);
+
+        // insert the paragraph as a child of the container <div>
         document.getElementById("pyramid").appendChild(rowElem);
-        document.getElementById("height-display").innerHTML = height;
     }
 }

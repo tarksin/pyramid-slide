@@ -1,20 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>pyramid</title>
-	<script src="pyramid.js"></script>
-  <link rel = "stylesheet"
-     type = "text/css"
-     href = "style.css" />
-
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Righteous" rel="stylesheet">
+    <style>
+        #header {
+            margin: auto;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: "Poppins", sans-sans-serif;
+            text-align: center;
+            color: white;
+            background: #a8061c;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 800px;
+        }
+        #pyramid {
+            text-align: center;
+            line-height: 0;
+            background: #e2dee8;
+            font-size: 20px;
+            color: #8c6fb7;
+            width: 694px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        #numberSelected {
+            font-weight: bold;
+        }
+        table {
+            width: 800px;
+            vertical-align: middle;
+            font-size: 18px;
+            font-family: "Righteous", sans-serif;
+            text-align: center;
+            margin: auto;
+            border: 3px solid #8c6fb7;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding-top: 20px;
+        }
+        body {
+            margin: auto;
+            vertical-align: middle;
+            font-family: "Righteous", sans-serif;
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 700px;
+        }
+    </style>
 </head>
-<body>
-	<h2>Pyramid Adventure</h2>
-	<p>Set height:</p>
-	<p id="height-display"></p>
-	<input type="range" id="height-slider" min="1" max="20" oninput="drawPyramid(this.value)"/>
-
-	<div id="pyramid">
-	</div>
+<body >
+    <br>
+    <br>
+    <h1 id="header">Pyramid Slide</h1>
+    <br>
+        <table id="table">
+            <tr>
+                <td id="title"><span>Brick symbol:
+                    <select id="brickSymbol">
+                        <option value="#">&#35;</option>
+                        <option value="X">X</option>
+                        <option value="@">@</option>
+                        <option value="*">*</option>
+                        <option value="$">&#36;</option>
+                    </select>
+                    </span>
+                </td>
+                <td id="title"><span>How high?
+                <input type="range" id="heightSlider" min="1" max="20">
+                    <span id="numberSelected"></span>
+                    </span>
+                </td>
+            </tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+                <td colspan="2" id="pyramid"></td>
+            </tr>
+        </table>
+    <script src="pyramid.js"></script>
 </body>
 </html>
